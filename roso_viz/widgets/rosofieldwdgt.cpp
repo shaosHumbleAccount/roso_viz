@@ -7,7 +7,7 @@ RosoFieldWdgt::RosoFieldWdgt(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RosoFieldWdgt)
 {
-
+    rotateDeg = 0;
     ui->setupUi(this);
 
     ui->graphicsView->setSceneRect(QRectF(-300,-200,600,400));
@@ -36,7 +36,6 @@ RosoFieldWdgt::RosoFieldWdgt(QWidget *parent) :
 
     }
     ui->graphicsView->setScene(&scene);
-
 }
 
 RosoFieldWdgt::~RosoFieldWdgt()
@@ -138,4 +137,9 @@ QPointF RosoFieldWdgt::mapPosFromRosoToScene(const QPointF& pos) const
 double RosoFieldWdgt::mapRotFromRosoToScene(double rad) const
 {
     return (rad/3.1416*180) + 180;
+}
+
+void RosoFieldWdgt::rotateScene(double deg)
+{
+    ui->graphicsView->rotate(deg);
 }

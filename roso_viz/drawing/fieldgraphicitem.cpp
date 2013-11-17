@@ -42,4 +42,8 @@ void FieldGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     painter->setPen(pen);
     painter->setBrush(mybrush);
     painter->drawRect(-173.0/SCENE_SCALE, (1399.0-144.0)/SCENE_SCALE, 533.0/SCENE_SCALE, 144.0/SCENE_SCALE);
+
+    pen.setWidth(1);
+    painter->drawLine(0,0,-50,0);
+    painter->drawLine(0,0,0,50);
 }

@@ -163,3 +163,17 @@ void FieldModelController::updateRoboTar(const QString& msg)
         currentState.blue_robotTargets[id].y = y;
     }
 }
+
+void FieldModelController::clearScene()
+{
+    for(int i = 0;i < 3;i ++)
+    {
+        currentState.red_RobotPoses[i].isKnown = false;
+        currentState.blue_RobotPoses[i].isKnown = false;
+        currentState.red_robotTargets[i].isKnown = false;
+        currentState.blue_robotTargets[i].isKnown = false;
+        currentState.ballPos.setX(-1000);
+        currentState.ballPos.setY(-1000);
+    }
+    emit updateScene(currentState);
+}

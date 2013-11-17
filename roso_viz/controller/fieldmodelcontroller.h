@@ -16,6 +16,7 @@ signals:
 
 public slots:
     void updateState(QString msg);
+    void clearScene();
 
 private:
     void updateRoboPos(const QString& msg);

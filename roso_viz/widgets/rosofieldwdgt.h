@@ -20,9 +20,11 @@ class RosoFieldWdgt : public QWidget
 public:
     explicit RosoFieldWdgt(QWidget *parent = 0);
     ~RosoFieldWdgt();
-    
+    double getRotate() const{return rotateDeg;}
+
 public slots:
     void on_updateScene(StateForTimestep&);
+    void rotateScene(double deg);
 
 private:
     Ui::RosoFieldWdgt *ui;
@@ -42,6 +44,7 @@ private:
 
     double mapRotFromRosoToScene(double rads) const;//!return degree!!
 
+    double rotateDeg;
 };
 
 #endif // ROSOFIELDWDGT_H

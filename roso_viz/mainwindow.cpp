@@ -20,3 +20,13 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_actionClear_triggered()
+{
+    modelController->clearScene();
+}
+
+void MainWindow::on_actionRotate_Clockwise_triggered()
+{
+    ui->rosoFieldWdgt->rotateScene(ui->rosoFieldWdgt->getRotate() + 90);
+}
