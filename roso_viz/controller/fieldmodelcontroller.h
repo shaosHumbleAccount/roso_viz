@@ -19,6 +19,8 @@ public slots:
 
 private:
     void updateRoboPos(const QString& msg);
+    void updateBallPos(const QString& msg);
+    void updateRoboTar(const QString& msg);
 
     StateForTimestep currentState;
 };

@@ -5,6 +5,9 @@
 #include <QGraphicsScene>
 #include "data/statefortimestep.h"
 #include "drawing/robotgraphicitem.h"
+#include "drawing/ballgraphicitem.h"
+#include "drawing/fieldgraphicitem.h"
+#include "drawing/robottargetgraphicitem.h"
 
 namespace Ui {
 class RosoFieldWdgt;
@@ -25,8 +28,20 @@ private:
     Ui::RosoFieldWdgt *ui;
     QGraphicsScene scene;
 
-    RobotGraphicItem* blue_robots[3];
     RobotGraphicItem* red_robots[3];
+    RobotGraphicItem* blue_robots[3];
+
+    robotTargetGraphicItem* red_targets[3];
+    robotTargetGraphicItem* blue_targets[3];
+
+    BallGraphicItem* ball;
+    FieldGraphicItem* fieldItem;
+
+    QPointF mapPosFromRosoToScene(const QPointF& pos) const;
+    QPointF mapPosFromRosoToScene(double x, double y) const;
+
+    double mapRotFromRosoToScene(double rads) const;//!return degree!!
+
 };
 
 #endif // ROSOFIELDWDGT_H

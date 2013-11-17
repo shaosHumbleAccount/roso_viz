@@ -42,9 +42,9 @@ public:
 
 public slots:
     //Set a robot's current position
-    static void setRobotPos(RobotType type, int robotID, double x, double y)
+    static void setRobotPos(RobotType type, int robotID, double x, double y, double rad)
     {
-        sendMsg(QString("roboPos %1 %2 %3 %4").arg(type).arg(robotID).arg(x).arg(y));
+        sendMsg(QString("roboPos %1 %2 %3 %4 %5").arg(type).arg(robotID).arg(x).arg(y).arg(rad));
     }
 
     //Set a robot's current target

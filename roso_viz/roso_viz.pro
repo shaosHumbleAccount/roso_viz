@@ -19,7 +19,10 @@ SOURCES += main.cpp\
     controller/fieldmodelcontroller.cpp \
     data/statefortimestep.cpp \
     widgets/rosofieldwdgt.cpp \
-    drawing/robotgraphicitem.cpp
+    drawing/robotgraphicitem.cpp \
+    drawing/ballgraphicitem.cpp \
+    drawing/fieldgraphicitem.cpp \
+    drawing/robottargetgraphicitem.cpp
 
 HEADERS  += mainwindow.h \
     udpserver.h \
@@ -30,7 +33,10 @@ HEADERS  += mainwindow.h \
     controller/fieldmodelcontroller.h \
     data/statefortimestep.h \
     widgets/rosofieldwdgt.h \
-    drawing/robotgraphicitem.h
+    drawing/robotgraphicitem.h \
+    drawing/ballgraphicitem.h \
+    drawing/fieldgraphicitem.h \
+    drawing/robottargetgraphicitem.h
 
 FORMS    += mainwindow.ui \
     widgets/rosofieldwdgt.ui

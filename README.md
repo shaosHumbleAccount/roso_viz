@@ -11,3 +11,4 @@ How to use:
     Default settings should work fine, but feel free to make changes.
 
 
+This program (not including tests) is based purely on Qt.
