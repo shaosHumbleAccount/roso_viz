@@ -18,7 +18,6 @@ private slots:
 
 private:
     QUdpSocket* udpSocket;
-    int port;
 };
 
 #endif // UDPSERVER_H

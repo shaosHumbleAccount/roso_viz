@@ -1,10 +1,17 @@
 #include "settingcenter.h"
+#include <QMessageBox>
 
 SettingCenter* global_settingCenter_instance = NULL;
 
 SettingCenter::SettingCenter(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    settings("rosoviz.ini",QSettings::IniFormat)
 {
+    if(!settings.contains("network/port"))
+    {
+        QMessageBox::warning(NULL, "rosoviz.ini NOT FOUND",
+                             "rosoviz.ini cannot be found. Please copy it to the same folder as the executable.");
+    }
 }
 
 SettingCenter* SettingCenter::singleton()
@@ -18,9 +25,9 @@ SettingCenter* SettingCenter::singleton()
 
 QVariant SettingCenter::getSettingValue(QString name) const
 {
-    if(settingMap.contains(name))
+    if(settings.contains(name))
     {
-        return settingMap[name];
+        return settings.value(name);
     }
     else
     {
@@ -32,6 +39,6 @@ QVariant SettingCenter::getSettingValue(QString name) const
 
 void SettingCenter::set_SettingValue(QString name, QVariant value)
 {
-    settingMap[name] = value;
+    settings.setValue(name, value);
     emit settingChanged(name,value);
 }

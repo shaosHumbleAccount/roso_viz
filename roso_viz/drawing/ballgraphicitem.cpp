@@ -1,6 +1,7 @@
 #include "ballgraphicitem.h"
 #include <QPainter>
 #include "commonDefs.h"
+#include "Setting/settingcenter.h"
 
 BallGraphicItem::BallGraphicItem()
 {
@@ -10,7 +11,8 @@ BallGraphicItem::BallGraphicItem()
 
 QRectF BallGraphicItem::boundingRect() const
 {
-    return QRectF(-15.0/SCENE_SCALE, -15.0/SCENE_SCALE, 15.0/SCENE_SCALE, 15.0/SCENE_SCALE);
+    double r = SettingCenter::singleton()->getSettingValue("field/ball_radius").toDouble();
+    return QRectF(-r/SCENE_SCALE, -r/SCENE_SCALE, r/SCENE_SCALE, r/SCENE_SCALE);
 }
 
 void BallGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -23,6 +25,7 @@ void BallGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
     painter->setPen(pen);
     painter->setBrush(mybrush);
-    painter->drawEllipse(QPoint(0,0),15.0/SCENE_SCALE,15.0/SCENE_SCALE);
+    double r = SettingCenter::singleton()->getSettingValue("field/ball_radius").toDouble();
+    painter->drawEllipse(QPoint(0,0),r/SCENE_SCALE,r/SCENE_SCALE);
 
 }

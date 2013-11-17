@@ -43,3 +43,7 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     res.qrc
+
+
+QMAKE_POST_LINK += $$quote(cp  $${PWD}/rosoviz.ini $${OUT_PWD}$$escape_expand(\n\t))
+

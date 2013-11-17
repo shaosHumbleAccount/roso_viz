@@ -1,15 +1,14 @@
 #include "udpserver.h"
 #include "util/logger.h"
+#include "Setting/settingcenter.h"
 
 UdpServer::UdpServer(QObject *parent) :
     QObject(parent)
 {
-    port = 7086;
-
     udpSocket = new QUdpSocket();
-    udpSocket->bind(QHostAddress::Any, port);
+    udpSocket->bind(QHostAddress::Any, SettingCenter::singleton()->getSettingValue("network/port").toInt());
 
-    Logger::singleton()->printLog(QString("UdpServer is listening port %1").arg(port));
+    Logger::singleton()->printLog(QString("UdpServer is listening port %1").arg(SettingCenter::singleton()->getSettingValue("network/port").toInt()));
 
     bool success = connect(udpSocket, SIGNAL(readyRead()), this, SLOT(readPendingDatagrams()));
     Q_ASSERT(success);

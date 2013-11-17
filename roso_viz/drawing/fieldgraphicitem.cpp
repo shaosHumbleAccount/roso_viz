@@ -1,6 +1,7 @@
 #include "fieldgraphicitem.h"
 #include <QPainter>
 #include "commonDefs.h"
+#include "Setting/settingcenter.h"
 
 FieldGraphicItem::FieldGraphicItem()
 {
@@ -16,6 +17,8 @@ void FieldGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     QPen pen;
     QBrush mybrush;
 
+    SettingCenter* sc = SettingCenter::singleton();
+
     pen.setColor(Qt::black);
     pen.setWidth(5);
     mybrush.setColor(Qt::darkGray);
@@ -23,7 +26,10 @@ void FieldGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
     painter->setPen(pen);
     painter->setBrush(mybrush);
-    painter->drawRect(-843.0/SCENE_SCALE, -1387.0/SCENE_SCALE, 1705.0/SCENE_SCALE, 2786.0/SCENE_SCALE);
+    painter->drawRect(sc->getSettingValue("field/left_top_x").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/left_top_y").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/width").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/height").toDouble()/SCENE_SCALE);
 
     pen.setColor(Qt::black);
     pen.setWidth(3);
@@ -32,7 +38,10 @@ void FieldGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
     painter->setPen(pen);
     painter->setBrush(mybrush);
-    painter->drawRect(-173.0/SCENE_SCALE, -1387.0/SCENE_SCALE, 533.0/SCENE_SCALE, 144.0/SCENE_SCALE);
+    painter->drawRect(sc->getSettingValue("field/abovepen_left_top_x").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/abovepen_left_top_y").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/abovepen_width").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/abovepen_height").toDouble()/SCENE_SCALE);
 
     pen.setColor(Qt::black);
     pen.setWidth(3);
@@ -41,7 +50,34 @@ void FieldGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
     painter->setPen(pen);
     painter->setBrush(mybrush);
-    painter->drawRect(-173.0/SCENE_SCALE, (1399.0-144.0)/SCENE_SCALE, 533.0/SCENE_SCALE, 144.0/SCENE_SCALE);
+    painter->drawRect(sc->getSettingValue("field/lowpen_left_top_x").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/lowpen_left_top_y").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/lowpen_width").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/lowpen_height").toDouble()/SCENE_SCALE);
+
+    pen.setColor(Qt::black);
+    pen.setWidth(3);
+    mybrush.setColor(Qt::darkGray);
+    mybrush.setStyle(Qt::NoBrush);
+
+    painter->setPen(pen);
+    painter->setBrush(mybrush);
+    painter->drawRect(sc->getSettingValue("field/abovegoal_left_top_x").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/abovegoal_left_top_y").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/abovegoal_width").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/abovegoal_height").toDouble()/SCENE_SCALE);
+
+    pen.setColor(Qt::black);
+    pen.setWidth(3);
+    mybrush.setColor(Qt::darkGray);
+    mybrush.setStyle(Qt::NoBrush);
+
+    painter->setPen(pen);
+    painter->setBrush(mybrush);
+    painter->drawRect(sc->getSettingValue("field/lowgoal_left_top_x").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/lowgoal_left_top_y").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/lowgoal_width").toDouble()/SCENE_SCALE,
+                      sc->getSettingValue("field/lowgoal_height").toDouble()/SCENE_SCALE);
 
     pen.setWidth(1);
     painter->drawLine(0,0,-50,0);

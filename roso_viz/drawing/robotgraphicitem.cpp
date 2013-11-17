@@ -2,6 +2,7 @@
 #include <QGraphicsEllipseItem>
 #include <QPainter>
 #include <QTextItem>
+#include "Setting/settingcenter.h"
 
 RobotGraphicItem::RobotGraphicItem(RobotType _type, int _id)
 {
@@ -15,13 +16,15 @@ RobotGraphicItem::RobotGraphicItem(RobotType _type, int _id)
 
 QRectF RobotGraphicItem::boundingRect() const
 {
-    return QRectF(-43.0/SCENE_SCALE, -43.0/SCENE_SCALE, 43.0/SCENE_SCALE, 43.0/SCENE_SCALE);
+    double r = SettingCenter::singleton()->getSettingValue("field/robot_radius").toDouble();
+    return QRectF(-r/SCENE_SCALE, -r/SCENE_SCALE, r/SCENE_SCALE, r/SCENE_SCALE);
 }
 
 void RobotGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QPen pen;
     QBrush mybrush;
+    double r = SettingCenter::singleton()->getSettingValue("field/robot_radius").toDouble();
     if(type == RED_ROBOT)
     {
         pen.setColor(Qt::black);
@@ -30,16 +33,16 @@ void RobotGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
         painter->setPen(pen);
         painter->setBrush(mybrush);
-        painter->drawEllipse(QPoint(0,0),43.0/SCENE_SCALE,43.0/SCENE_SCALE);
+        painter->drawEllipse(QPoint(0,0),r/SCENE_SCALE,r/SCENE_SCALE);
 
         mybrush.setColor(Qt::yellow);
         painter->setPen(pen);
         painter->setBrush(mybrush);
-        painter->drawEllipse(QPoint(0,-30.0/SCENE_SCALE),10.0/SCENE_SCALE,10.0/SCENE_SCALE);
+        painter->drawEllipse(QPoint(0,-r/3*2/SCENE_SCALE),r/3/SCENE_SCALE,r/3/SCENE_SCALE);
 
         pen.setColor(Qt::white);
         painter->setPen(pen);
-        painter->drawText(-30.0/SCENE_SCALE,-30.0/SCENE_SCALE,60.0/SCENE_SCALE,60.0/SCENE_SCALE,Qt::AlignCenter|Qt::AlignHCenter,QString::number(id));
+        painter->drawText(-r/SCENE_SCALE,-r/SCENE_SCALE,r*2/SCENE_SCALE,r*2/SCENE_SCALE,Qt::AlignCenter|Qt::AlignHCenter,QString::number(id));
     }
     else
     {
@@ -49,15 +52,16 @@ void RobotGraphicItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
         painter->setPen(pen);
         painter->setBrush(mybrush);
-        painter->drawEllipse(QPoint(0,0),43.0/SCENE_SCALE,43.0/SCENE_SCALE);
+        painter->drawEllipse(QPoint(0,0),r/SCENE_SCALE,r/SCENE_SCALE);
+
 
         mybrush.setColor(Qt::yellow);
         painter->setPen(pen);
         painter->setBrush(mybrush);
-        painter->drawEllipse(QPoint(0,-30.0/SCENE_SCALE),10.0/SCENE_SCALE,10.0/SCENE_SCALE);
+        painter->drawEllipse(QPoint(0,-r/3*2/SCENE_SCALE),r/3/SCENE_SCALE,r/3/SCENE_SCALE);
 
         pen.setColor(Qt::white);
         painter->setPen(pen);
-        painter->drawText(-30.0/SCENE_SCALE,-30.0/SCENE_SCALE,60.0/SCENE_SCALE,60.0/SCENE_SCALE,Qt::AlignCenter|Qt::AlignHCenter,QString::number(id));
+        painter->drawText(-r/SCENE_SCALE,-r/SCENE_SCALE,r*2/SCENE_SCALE,r*2/SCENE_SCALE,Qt::AlignCenter|Qt::AlignHCenter,QString::number(id));
     }
 }

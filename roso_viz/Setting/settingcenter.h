@@ -21,7 +21,8 @@ public slots:
     void set_SettingValue(QString name, QVariant value);
 
 private:
-    QMap<QString,QVariant> settingMap;
+    //QMap<QString,QVariant> settingMap;
+    QSettings settings;
 };
 
 #endif // SETTINGCENTER_H
