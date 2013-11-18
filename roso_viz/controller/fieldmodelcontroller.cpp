@@ -123,7 +123,7 @@ void FieldModelController::updateRoboTar(const QString& msg)
     Logger::singleton()->printLog(QString("updateRoboTar") + msg);
 
     QStringList list = msg.split(" ", QString::SkipEmptyParts);
-    if(list.size() != 5)
+    if(list.size() != 6)
     {
         return;
     }
@@ -145,6 +145,8 @@ void FieldModelController::updateRoboTar(const QString& msg)
     success &= tmpSucess;
     double y = list.at(4).toDouble(&tmpSucess);
     success &= tmpSucess;
+    double rad = list.at(5).toDouble(&tmpSucess);
+    success &= tmpSucess;
 
     if(!success)
     {
@@ -155,12 +157,14 @@ void FieldModelController::updateRoboTar(const QString& msg)
         currentState.red_robotTargets[id].isKnown = true;
         currentState.red_robotTargets[id].x = x;
         currentState.red_robotTargets[id].y = y;
+        currentState.red_robotTargets[id].rad = rad;
     }
     else if(type == BLUE_ROBOT)
     {
         currentState.blue_robotTargets[id].isKnown = true;
         currentState.blue_robotTargets[id].x = x;
         currentState.blue_robotTargets[id].y = y;
+        currentState.blue_robotTargets[id].rad = rad;
     }
 }
 

@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     for(int i = 1; i < 100; i ++)
     {
         qDebug(QString("%1").arg(i).toAscii());
+
         Rosoviz::setRobotPos(Rosoviz::BLUE, 0, 0.250 - i*0.01, -0.100, 3.1416);
         Rosoviz::setRobotPos(Rosoviz::RED, 0, -0.250 + i*0.01, -0.150, -3.1416/2);
         Rosoviz::setRobotPos(Rosoviz::RED, 1, 0.250 - i*0.01, 0.100, 0);

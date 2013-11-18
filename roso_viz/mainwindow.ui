@@ -83,6 +83,11 @@
     <string>Rotate Clockwise</string>
    </property>
   </action>
+  <action name="actionStartRecord">
+   <property name="text">
+    <string>startRecord</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

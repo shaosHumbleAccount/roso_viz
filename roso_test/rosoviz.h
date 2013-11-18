@@ -4,10 +4,10 @@
 * Include this header to communicate with Roso_viz.
 *
 * Example:
-*       Rosoviz::setRobotPos(Rosoviz::RED, 2, 10.11, 20.5);
+*       Rosoviz::setRobotPos(Rosoviz::RED, 2, 10.11, 20.5, 0.45);
 *
 * The line above tells Roso_viz that a red robot, whose ID is 2, currently
-* locates at x = 10.11, y = 20.5.
+* locates at x = 10.11, y = 20.5, orientation = 0.45 rad.
 *
 *
 *
@@ -42,15 +42,15 @@ public:
 
 public slots:
     //Set a robot's current position
-    static void setRobotPos(RobotType type, int robotID, double x, double y, double rad)
+    static void setRobotPos(RobotType type, int robotID, double x, double y, double rad = 0)
     {
         sendMsg(QString("roboPos %1 %2 %3 %4 %5").arg(type).arg(robotID).arg(x).arg(y).arg(rad));
     }
 
     //Set a robot's current target
-    static void setRobotTarget(RobotType type, int robotID, double x, double y)
+    static void setRobotTarget(RobotType type, int robotID, double x, double y, double rad = 0)
     {
-        sendMsg(QString("roboTar %1 %2 %3 %4").arg(type).arg(robotID).arg(x).arg(y));
+        sendMsg(QString("roboTar %1 %2 %3 %4 %5").arg(type).arg(robotID).arg(x).arg(y).arg(rad));
     }
 
     //Set the ball's current position
