@@ -6,7 +6,7 @@
 
 QT       += core network
 
-TARGET = roso_test
+TARGET = roso_example
 
 TEMPLATE = app
 
