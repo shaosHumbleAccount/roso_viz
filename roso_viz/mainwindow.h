@@ -23,6 +23,10 @@ private slots:
     void on_actionRotate_Clockwise_triggered();
 
 
+    void on_actionAbout_Qt_triggered();
+
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
 

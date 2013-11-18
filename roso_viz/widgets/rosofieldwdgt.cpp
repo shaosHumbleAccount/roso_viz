@@ -9,8 +9,8 @@ RosoFieldWdgt::RosoFieldWdgt(QWidget *parent) :
 {
     rotateDeg = 0;
     ui->setupUi(this);
-
-    ui->graphicsView->setSceneRect(QRectF(-300,-200,600,400));
+    scene.setSceneRect(QRectF(-450,-450,900,900));
+    ui->graphicsView->setSceneRect(QRectF(-450,-450,900,900));
     //QGraphicsLineItem* line1 = scene.addLine(1,1,100,100,pen);
 
     fieldItem = new FieldGraphicItem();
@@ -36,6 +36,7 @@ RosoFieldWdgt::RosoFieldWdgt(QWidget *parent) :
 
     }
     ui->graphicsView->setScene(&scene);
+    ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
 }
 
 RosoFieldWdgt::~RosoFieldWdgt()
