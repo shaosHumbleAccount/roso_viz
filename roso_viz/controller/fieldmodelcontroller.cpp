@@ -21,7 +21,6 @@ void FieldModelController::updateState(QString msg)
     {
         currentState.timestamp = QDateTime::currentDateTime();
 
-        qint64 tmp  = currentState.timestamp.toMSecsSinceEpoch();
         if(msg.startsWith("roboPos"))
         {
             updateRoboPos(msg);

@@ -12,6 +12,6 @@ void StateRecord::getTimeStamps(QVector<qint64>& stamps)
     stamps.clear();
     foreach(StateForTimestep data, states)
     {
-        stamps.append(data.timestamp.toMSecsSinceEpoch());
+        stamps.append(data.timestamp.toTime_t()*1000 + data.timestamp.time().msec());
     }
 }

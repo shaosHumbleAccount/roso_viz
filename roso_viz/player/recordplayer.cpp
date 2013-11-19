@@ -63,7 +63,7 @@ bool RecordPlayer::startPlaying(qint64 startTime)
 
     isPlaying = true;
     startTrajTime = getClosestTimestamp(startTime);
-    Logger::singleton()->printLog(QString("startTrajTime = %1").arg(QDateTime::fromMSecsSinceEpoch(startTrajTime).toString("MMM.dd_hh:mm:ss")));
+
     currentTime = startTrajTime;
 
     emit recordPlayingStarted();
@@ -170,8 +170,6 @@ void RecordPlayer::run()
     {
         int closestIdx;
         currentTime = getClosestTimestamp(speed*startSystemTime.elapsed() + startTrajTime, &closestIdx);
-
-        Logger::singleton()->printLog(QString("currentTime = %1").arg(QDateTime::fromMSecsSinceEpoch(currentTime).toString("MMM.dd_hh:mm:ss")));
 
         if(closestIdx >= 0)
         {
