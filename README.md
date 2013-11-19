@@ -4,10 +4,9 @@ roso_viz
 A Visualization tool designed for RoboSoccor Lab of Technische Universität München (TUM). 
 See more at http://www.rcs.ei.tum.de/en/Lehre/Labs/pr_rs/.
 
-How to Run
+How to Build
 -------------------------------
-The simplest way is to just use the executable in the quick_start\ folder (should work in the lab of TUM).  
-It's also very easy to build by yourself.
+The simplest way is to use Qt Creator, load roso_viz.pro, and click Run.
 
 
 How to Use
@@ -24,13 +23,6 @@ More on how to Use
 2. Roso_viz and your program could be run on different computers, just change the IP address and port
 defined in rosoviz.h and rosoviz.ini accordingly.
 
-
-How to Build
--------------------------------
-If you have problem running the pre-compiled executable, or wanna make some change (which is welcomed)
-, you can build the projects yourself
-In the repository are two Qt projects, which should be able to be compiled using QtCreator (a reasonably up-to-date version)
-out of the box.
 
 Dependencies
 -------------------------------
