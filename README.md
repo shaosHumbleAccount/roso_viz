@@ -6,7 +6,7 @@ See more at http://www.rcs.ei.tum.de/en/Lehre/Labs/pr_rs/.
 
 How to Run
 -------------------------------
-The simplest way is to just use the executable in the quick_start\ folder (should work in Room 3946, TUM).  
+The simplest way is to just use the executable in the quick_start\ folder (should work in the lab of TUM).  
 It's also very easy to build by yourself.
 
 
