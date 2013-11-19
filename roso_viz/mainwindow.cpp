@@ -111,6 +111,7 @@ void MainWindow::on_startRecording_BTN_clicked()
     }
     else
     {
+        modelController->clearScene();
         recorder->on_startRecording();
         ui->startRecording_BTN->setText("Stop");
     }
