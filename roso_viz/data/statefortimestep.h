@@ -3,13 +3,14 @@
 
 #include <QtCore>
 #include "robopos.h"
+#include <QDateTime>
 
-class StateForTimestep : public QObject
+class StateForTimestep
 {
-    Q_OBJECT
 public:
-    explicit StateForTimestep(QObject *parent = 0);
-    
+    explicit StateForTimestep();
+    StateForTimestep(const StateForTimestep&);
+
     QVector<RoboPos> red_RobotPoses;
     QVector<RoboPos> blue_RobotPoses;
 
@@ -18,7 +19,7 @@ public:
 
     QPointF ballPos;
 
-    QTime time;
+    QDateTime timestamp;
 signals:
     
 public slots:

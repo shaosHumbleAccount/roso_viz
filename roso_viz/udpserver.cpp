@@ -29,7 +29,7 @@ void UdpServer::readPendingDatagrams()
                                 &sender, &senderPort);
 
         QString msg = QString(datagram);
-        Logger::singleton()->printLog("Data recieved: " + msg);
+        //Logger::singleton()->printLog("UDP datagram recieved: " + msg);
         emit messageRecieved(msg);
     }
     //Logger::singleton()->printLog("readPendingDatagrams ends");

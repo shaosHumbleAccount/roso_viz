@@ -22,7 +22,11 @@ SOURCES += main.cpp\
     drawing/robotgraphicitem.cpp \
     drawing/ballgraphicitem.cpp \
     drawing/fieldgraphicitem.cpp \
-    drawing/robottargetgraphicitem.cpp
+    drawing/robottargetgraphicitem.cpp \
+    data/staterecord.cpp \
+    player/modemanager.cpp \
+    player/recorder.cpp \
+    player/recordplayer.cpp
 
 HEADERS  += mainwindow.h \
     udpserver.h \
@@ -36,7 +40,11 @@ HEADERS  += mainwindow.h \
     drawing/robotgraphicitem.h \
     drawing/ballgraphicitem.h \
     drawing/fieldgraphicitem.h \
-    drawing/robottargetgraphicitem.h
+    drawing/robottargetgraphicitem.h \
+    data/staterecord.h \
+    player/modemanager.h \
+    player/recorder.h \
+    player/recordplayer.h
 
 FORMS    += mainwindow.ui \
     widgets/rosofieldwdgt.ui
